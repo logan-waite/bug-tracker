@@ -5,8 +5,15 @@
     
     <body>
         <h1>This is my first View!</h1>
+        
+        <p>
+            <?php foreach($records as $row) : ?>
+            
+                <h2><?php echo $row->bug_name; ?></h2>
+            
+            <?php endforeach; ?>
+        </p>
     
-        <p><?php echo $anotherValue ?></p>
     </body>
 
 </html>
