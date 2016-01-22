@@ -1,0 +1,29 @@
+Bugtracker
+
+Views: 
+    Show all the issues
+        Order by issues name, date submitted, frequency, and priority
+        Comment on existing issues
+    Submit new issues
+    Close issues
+    
+Database:
+    bugs:   id/name/description/date_submitted/categoryID/frequency/priorityID/userID
+    priority:   id/name
+    comments:   id/bugID/title/content/typeID/userID
+    comment_types:  id/type         ?not sure what this is for?
+    categories:     id/category
+    
+Models:
+    issue_model:
+        get_all_issues()
+        get_active_issues()
+        create_issue()
+        edit_issue()
+        update_issue_status()
+        delete_issue()
+    comment_model:
+        get_comments()
+        create_comment()
+        edit_comment()
+        delete_comment()
