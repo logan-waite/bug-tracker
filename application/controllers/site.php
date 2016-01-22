@@ -7,7 +7,7 @@ class Site extends CI_Controller {
         $this->load->model("comment_model");
 
         $data['issues'] = $this->issue_model->get_all_issues();
-        $data['comments'] = $this->comment_model->get_comments();
+       // $data['comments'] = $this->comment_model->get_comments();
         $this->load->view('home', $data);
     }
 

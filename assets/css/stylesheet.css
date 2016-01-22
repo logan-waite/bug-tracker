@@ -1,0 +1,76 @@
+nav {
+    padding: 10px;
+    border-radius: 5px;
+    background: #e7e7e7;
+    background: linear-gradient(#eee, #ddd);
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px;
+    margin: 0px 5px;
+    background-color: #c7c7c7;
+    background: linear-gradient(#ffffff, #c7c7c7);
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #555;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: linear-gradient( #e0e0e0, #d7d7d7);
+}
+
+.btn:active {
+    background: linear-gradient(#c7c7c7, #efefef);
+}
+
+#issue-list {
+    float: left;
+    border-radius: 5px;
+}
+
+.nav-pills {
+    padding: 8px 12px;
+    background: #efefef;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-pills p {
+    margin: 0px;
+    line-height: 14px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.nav-pills:hover {
+    background: #c7c7c7;
+}
+
+#comment-list {
+    float: left;
+    margin-left: 10px;
+}
+
+.comment {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #cfefff;
+    border-radius: 5px;
+    border: 1px solid #cceeff;
+}
+
+.comment h4, p {
+    margin: 0px;
+}
+
+.btn-small {
+    font-size: 10px;
+}
+
+#comment-buttons {
+}

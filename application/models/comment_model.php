@@ -1,7 +1,8 @@
 <?php
 class Comment_model extends CI_Model {
 
-    function get_comments() {
+    function get_comments($id) {
+        $this->db->where('bugID', $id);
         $q = $this->db->get('comments');
         
         if($q->num_rows() > 0)
