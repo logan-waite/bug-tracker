@@ -4,14 +4,24 @@ class Ajax extends CI_Controller {
     function choose_issue() {
         $this->load->model('comment_model');
         $id = trim($_POST['issueID']);
-        $data['comments'] = $this->comment_model->get_comments($id);
-        $page = $this->load->view("comments", $data, TRUE);
-        echo $page;
+        if ($this->comment_model->get_comments($id))
+        {
+            $data['comments'] = $this->comment_model->get_comments($id);
+            $page = $this->load->view("comments", $data, TRUE);
+            echo $page;  
+        }
+        else
+        {
+            echo "<div class='comment'>
+                <h4>No comments have been made for this issue yet.</h4>
+                </div>";        
+        }
+
         
     }
     
     function new_issue() {
-        $page = $this->load->view('new_issue', '', TRUE);
+        $page = $this->load->view('new_issue_view', '', TRUE);
         echo $page;
         
     }
