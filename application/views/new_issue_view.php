@@ -1,6 +1,4 @@
-<h2>
-    New Issue
-</h2>
+
 <div id="new-form">
     <?php 
         $form_attributes = array(
@@ -16,6 +14,12 @@
             'name'  => 'description',
             'id'    => 'description'
         );
+        $priority_options = array(
+            '1'     => 'Urgent',
+            '2'     => 'Pending',
+            '3'     => 'In Progress',
+            '4'     => 'Testing'
+        );
 
         echo validation_errors();
         echo form_open('/new_issue/create_issue');
@@ -23,6 +27,9 @@
         echo form_label('Issue: ', 'title');
         echo "<br>";
         echo form_input($title_data);
+        echo "<br>";
+        echo form_label('Priority: ', 'priority');
+        echo form_dropdown('priority', $priority_options, '2');
         echo "<br>";
         echo form_label('Description: ', 'description');
         echo "<br>";

@@ -1,9 +1,36 @@
+html {
+    font-family: Verdana, Geneva, sans-serif;
+}
 nav {
     padding: 10px;
     border-radius: 5px;
     background: #e7e7e7;
     background: linear-gradient(#eee, #ddd);
 }
+
+#header {
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 36px;
+}
+
+#issue-header {
+    margin-bottom: 10px;
+}
+
+#issue-header h4{
+    text-align: center;
+    margin: 5px;
+}
+
+#issue_header p {
+    
+}
+
+/*
+* btn classes
+*/
 
 .btn {
     display: inline-block;
@@ -15,7 +42,6 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 2px 2px 5px #555;
-    font-family: Verdana, Geneva, sans-serif;
     font-size: 14px;
 }
 
@@ -27,10 +53,13 @@ nav {
     background: linear-gradient(#c7c7c7, #efefef);
 }
 
-#issue-list {
-    float: left;
-    border-radius: 5px;
+.btn-small {
+    font-size: 10px;
 }
+/*
+* end .btn classes
+* begin .nav-pills classes
+*/
 
 .nav-pills {
     padding: 8px 12px;
@@ -44,16 +73,34 @@ nav {
 .nav-pills p {
     margin: 0px;
     line-height: 14px;
-    font-family: Verdana, Geneva, sans-serif;
 }
 
 .nav-pills:hover {
+    background: #d8d8d8;
+}
+
+.active {
     background: #c7c7c7;
+}
+
+/*
+* end .nav-pills classes
+*/
+
+#issue-list {
+    float: left;
+    border-radius: 5px;
+    width: 300px;
+}
+
+#issue-list p {
+    text-align: left;
 }
 
 #comment-list {
     float: left;
     margin-left: 10px;
+    width: 300px;
 }
 
 .comment {
@@ -68,10 +115,6 @@ nav {
     margin: 0px;
 }
 
-.btn-small {
-    font-size: 10px;
-}
-
 #new-form {
     float: left;
 }
@@ -79,3 +122,47 @@ nav {
 textarea {
     resize: none;
 }
+
+/*
+* begin .badge classes
+*/
+
+.badge {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 2px 4px;
+    font-size: 11.844px;
+    font-weight: bold;
+    line-height: 14px;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #999999;
+    padding-right: 9px;
+    padding-left: 9px;
+    -webkit-border-radius: 9px;
+       -moz-border-radius: 9px;
+            border-radius: 9px;
+}
+
+.badge-urgent {
+    background-color: #ff3311;
+}
+
+.badge-testing {
+    background-color: #55ff55;
+}
+
+.badge-pending {
+    background-color: #ffaa33;
+}
+
+.badge-progress {
+    background-color: #55aaff;
+}
+
+/*
+* end .badge classes
+*/
+

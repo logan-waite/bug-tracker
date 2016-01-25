@@ -13,22 +13,8 @@ class New_issue extends CI_Controller {
         }
         else
         {
-            $title = $_POST['title'];
-            $description = $_POST['description'];
-            $today = date("Y-m-d", time());
-            
-            $bug_data = array(
-                'name'              =>  $title,
-                'description'       =>  $description,
-                'date_submitted'    =>  $today,
-            //    'categoryID'        =>  $category,
-            //    'priorityID'        =>  $priority,
-            //    'userID'            =>  $userID,
-                'statusID'          => 1
-            );
-            
-            $this->db->insert('bugs', $bug_data);
-            //$this->load->view('success');
+            $this->load->model("issue_model");
+            $this->issue_model->create_issue();
         }
             
     }
