@@ -13,6 +13,10 @@ class Comment_model extends CI_Model {
             }
                 return $data;
         }
+        else
+        {
+            return FALSE;
+        }
     }
 
     function create_comment() {
