@@ -22,7 +22,7 @@
         );
 
         echo validation_errors();
-        echo form_open('/new_issue/create_issue');
+        echo form_open('/issues/create_issue');
 
         echo form_label('Issue: ', 'title');
         echo "<br>";

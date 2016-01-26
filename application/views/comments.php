@@ -7,8 +7,3 @@
             </div>
         <?php endforeach ?>
 </div>
-<div id="comment-buttons" class="nav">
-    <div class="btn btn-small">
-        New Comment
-    </div>
-</div>

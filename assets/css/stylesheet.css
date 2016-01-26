@@ -1,3 +1,7 @@
+/*
+* Universal classes begin
+*/
+
 html {
     font-family: Verdana, Geneva, sans-serif;
 }
@@ -15,21 +19,14 @@ nav {
     margin-left: 36px;
 }
 
-#issue-header {
-    margin-bottom: 10px;
+.hidden {
+    visibility: hidden;
 }
 
-#issue-header h4{
-    text-align: center;
-    margin: 5px;
-}
-
-#issue_header p {
-    
-}
 
 /*
-* btn classes
+* End Universal Classes
+* begin btn classes
 */
 
 .btn {
@@ -43,10 +40,12 @@ nav {
     cursor: pointer;
     box-shadow: 2px 2px 5px #555;
     font-size: 14px;
-}
-
-.btn:hover {
-    background: linear-gradient( #e0e0e0, #d7d7d7);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .btn:active {
@@ -56,6 +55,17 @@ nav {
 .btn-small {
     font-size: 10px;
 }
+
+.disabled {
+    opacity: .50;
+    background: linear-gradient( #e0e0e0, #d7d7d7);
+    cursor: default;
+}
+
+.disabled:active {
+    background: linear-gradient( #e0e0e0, #d7d7d7);
+}
+
 /*
 * end .btn classes
 * begin .nav-pills classes
@@ -85,45 +95,6 @@ nav {
 
 /*
 * end .nav-pills classes
-*/
-
-#issue-list {
-    float: left;
-    border-radius: 5px;
-    width: 300px;
-}
-
-#issue-list p {
-    text-align: left;
-}
-
-#comment-list {
-    float: left;
-    margin-left: 10px;
-    width: 300px;
-}
-
-.comment {
-    margin-bottom: 10px;
-    padding: 5px;
-    background-color: #cfefff;
-    border-radius: 5px;
-    border: 1px solid #cceeff;
-}
-
-.comment h4, p {
-    margin: 0px;
-}
-
-#new-form {
-    float: left;
-}
-
-textarea {
-    resize: none;
-}
-
-/*
 * begin .badge classes
 */
 
@@ -164,5 +135,121 @@ textarea {
 
 /*
 * end .badge classes
+* begin issue classes
 */
+#issue-header {
+    margin-bottom: 10px;
+}
+
+#issue-header h4{
+    text-align: center;
+    margin: 5px;
+}
+
+#issue_header p {
+    
+}
+
+#issue-list {
+    float: left;
+    border-radius: 5px;
+    width: 300px;
+}
+
+#issue-list p {
+    text-align: left;
+}
+
+/* 
+* end issue classes
+* begin comment classes
+*/
+
+#comment-list {
+    float: left;
+    margin-left: 10px;
+    width: 300px;
+}
+
+.comment {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #cfefff;
+    border-radius: 5px;
+    border: 1px solid #cceeff;
+}
+
+.comment h4, p {
+    margin: 0px;
+}
+
+/* 
+* end comment classes
+* begin issue-tool classes
+*/
+
+#issue-tools {
+    float: left;
+    padding: 5px;
+}
+
+#issue-tools .btn {
+    display: block;
+    margin: 10px;
+}
+
+#close-window {
+    
+}
+
+.collapse {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.35s ease;
+       -moz-transition: height 0.35s ease;
+         -o-transition: height 0.35s ease;
+            transition: height 0.35s ease;
+}
+.collapse.in {
+    height: auto;
+}
+
+.collapsing {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition-timing-function: ease;
+         -o-transition-timing-function: ease;
+            transition-timing-function: ease;
+    -webkit-transition-duration: .35s;
+         -o-transition-duration: .35s;
+            transition-duration: .35s;
+    -webkit-transition-property: height, visibility;
+         -o-transition-property: height, visibility;
+            transition-property: height, visibility;
+}
+
+.well {
+  min-height: 20px;
+  padding: 19px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+/*
+* begin new-issue classes
+*/
+
+#new-form {
+    float: left;
+}
+
+textarea {
+    resize: none;
+}
+
 

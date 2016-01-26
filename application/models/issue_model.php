@@ -1,7 +1,11 @@
 <?php
 
 class Issue_model extends CI_Model {
-     
+    
+    function close_issue() {
+        // Update issue with active = 0 and leave final comment
+    }
+    
     function create_issue() 
     {
             $title = $_POST['title'];
@@ -14,9 +18,9 @@ class Issue_model extends CI_Model {
                 'description'       =>  $description,
                 'date_submitted'    =>  $today,
             //    'categoryID'        =>  $category,
-                'priorityID'        =>  $priority,
+                'statusID'        =>  $priority,
             //    'userID'            =>  $userID,
-                'statusID'          => 1
+                'active'          => 1
             );
             
             $this->db->insert('bugs', $bug_data);
@@ -66,7 +70,7 @@ class Issue_model extends CI_Model {
         
         if ($sort == "priority")
         {
-            $this->db->order_by('priorityID', 'ASC');
+            $this->db->order_by('statusID', 'ASC');
             $q = $this->db->get('bugs');
 
             if($q->num_rows() > 0)
@@ -78,7 +82,20 @@ class Issue_model extends CI_Model {
                     return $data;
             }  
         }
+        elseif ($sort == "date")  
+        {
+            $this->db->order_by('date_submitted', 'ASC');
+            $q = $this->db->get('bugs');
 
+            if($q->num_rows() > 0)
+            {
+                foreach ($q->result() as $row)
+                {
+                    $data[] = $row;
+                }
+                    return $data;
+            }   
+        }
     }
     
     function update_issue_status() {

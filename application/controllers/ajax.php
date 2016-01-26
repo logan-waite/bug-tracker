@@ -18,16 +18,11 @@ class Ajax extends CI_Controller {
         }
         else
         {
-                $page .= "<div class='comment'>
-                <h4>No comments have been made for this issue yet.</h4>
-                </div>
-                <div id='comment-buttons' class='nav'>
-                <div class='btn btn-small'>
-                    New Comment
-                </div>
-                </div>";   
+            $page .= "<div class='comment'>
+            <h4>No comments have been made for this issue yet.</h4>
+            </div>";   
             
-                echo $page; 
+            echo $page; 
         }
     }
     
@@ -48,6 +43,7 @@ class Ajax extends CI_Controller {
         $sort = trim($_POST['sort_by']);
         $this->load->model('issue_model');
         $data['issues'] = $this->issue_model->sort_issues($sort);
-        $page = $this->load->view('current_issues', $data, TRUE);
+        $page = $this->load->view('issues', $data, TRUE);
         echo $page;
+    }
 }
