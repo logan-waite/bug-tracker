@@ -25,13 +25,13 @@ class Issues extends CI_Controller {
         
         if ($this->form_validation->run() == FALSE)
         {
-            $this->load->view('home');
+            //$this->load->view('home');
         }
         else
         {
             $this->load->model("issue_model");
-            $this->issue_model->close_issue;();
-        }  
-        
+            $this->issue_model->close_issue();
+        }     
     }
+
 }
