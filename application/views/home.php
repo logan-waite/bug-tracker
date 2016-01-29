@@ -22,7 +22,7 @@
                     // Plug resulting view into comment box
                     $("#comment-list").html(result);
                     $("#issue-tools").removeClass("hidden");
-
+                    $(".issue-id").attr('value', id);
                 });
             }
             
@@ -43,12 +43,31 @@
             }
             
             function order_by(sort_by) {
-                var url = '<?php echo base_url(); ?>index.php/ajax/sort_by';
+                var url = '<?php echo base_url(); ?>index.php/ajax/sort_by/active';
                 $.post(url, {'sort_by' : sort_by}, function(result) {
+                    $("#issue-list").html(result);
+                    if (sort_by == 'priority') {
+                        $('#date').removeClass('sort_active');
+                        $('#priority').addClass('sort_active');
+                    } else if (sort_by == 'date') {
+                        $('#priority').removeClass('sort_active');
+                        $('#date').addClass('sort_active');
+                    }
+                });
+            }
+            
+            function change_status(id) {
+                var url = '<?php echo base_url(); ?>index.php/ajax/change_status';
+                var issueID = $(".issue-id").attr("value");
+                var sort_by = $(".sort_active").attr('id');
+                var state = 'active';
+                
+                $.post(url, {'status_id' : id, 'issue_id' : issueID, 'sort_by' : sort_by, 'active' : state}, function(result) {
                     $("#issue-list").html(result);
                 });
             }
-</script>
+            
+        </script>
     
     </head>
     
