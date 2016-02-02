@@ -23,6 +23,10 @@ nav {
     visibility: hidden;
 }
 
+i {
+    color: gray;
+    cursor: pointer;
+}
 
 /*
 * End Universal Classes
@@ -180,9 +184,14 @@ nav {
 #comment-list {
     float: left;
     margin-left: 10px;
-    width: 300px;
+    min-width: 200px;
+    max-width: 500px;
 }
 
+#comments {
+    max-height: 400px;
+    overflow: auto;
+}
 .comment {
     margin-bottom: 10px;
     padding: 5px;
@@ -195,6 +204,27 @@ nav {
     margin: 0px;
 }
 
+user {
+    margin-top: 0px;
+    float: right;
+    color: grey;
+    font-size: 10px;
+}
+
+.alert {
+    height: 1em;
+    line-height: 1em;
+    display: inline-block;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    padding: 5px;
+    visibility: hidden;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    color: #a94442;
+}
 /* 
 * end comment classes
 * begin issue-tool classes
@@ -272,6 +302,7 @@ nav {
 
 textarea {
     resize: none;
+    height: 100px;
 }
 
 

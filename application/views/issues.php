@@ -21,7 +21,7 @@
                 $status_class = "";
         }
     ?>
-    <div class="nav-pills" id='issue<?php echo $issue->id ?>' onclick="choose_issue(<?php echo $issue->id ?>)">
+    <div class="nav-pills" id='issue<?php echo $issue->id ?>' onclick="choose_issue('choose_issue', <?php echo $issue->id ?>)">
         <p><span class='badge <?=$status_class?>'>0</span> <?php echo $issue->name ?></p>
     </div>
 <?php endforeach ?>
