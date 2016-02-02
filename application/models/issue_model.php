@@ -29,25 +29,24 @@ class Issue_model extends CI_Model {
     }
     
     function create_issue()     // Create new issue with form data
-    {
-        
-            $title = $_POST['title'];
-            $description = $_POST['description'];
-            $priority = $_POST['priority'];
-            $today = date("Y-m-d", time());
-            
-            $bug_data = array(
-                'name'              =>  $title,
-                'description'       =>  $description,
-                'date_submitted'    =>  $today,
-            //    'categoryID'        =>  $category,
-                'statusID'          =>  $priority,
-            //    'userID'            =>  $userID,
-                'active'            => 1
-            );
-            
-            $this->db->insert('bugs', $bug_data);
-            //$this->load->view('success');
+    { 
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $priority = $_POST['priority'];
+        $today = date("Y-m-d", time());
+
+        $bug_data = array(
+            'name'              =>  $title,
+            'description'       =>  $description,
+            'date_submitted'    =>  $today,
+        //    'categoryID'        =>  $category,
+            'statusID'          =>  $priority,
+        //    'userID'            =>  $userID,
+            'active'            => 1
+        );
+
+        $this->db->insert('bugs', $bug_data);
+        //$this->load->view('success');
     }
         
     function delete_issue() {
@@ -55,7 +54,21 @@ class Issue_model extends CI_Model {
     }
     
     function edit_issue() {
-        
+        $issue = $_POST['id'];
+        $title = $_POST['issueTitle'];
+        $description = $_POST['editDescription'];
+        $today = date("Y-m-d", time());
+
+        $bug_data = array(
+            'name'              =>  $title,
+        //    'categoryID'        =>  $category,
+        //    'userID'            =>  $userID,
+            'description'       =>  $description
+        );
+
+        $this->db->where('id', $issue);
+        $this->db->update('bugs', $bug_data);
+        //$this->load->view('success');
     }
     
     function get_active_issues() {  // Returns every active issue
