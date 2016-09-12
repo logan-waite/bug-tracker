@@ -1,4 +1,12 @@
-function make_button(id, value, text) {
+var commentArray = ["", ""];
+
+$(document).ready(function() {
+   // $(".nav-pills:first").addClass("active");
+    $("#title").html("Current Issues");
+    $('#header').load("http://localhost:8888/bug-tracker/index.php/site/load_header");
+});
+
+function make_button(id, value, text) {     //'id' = id of element being affected; 'value' = the value we are passing; 'text' = what we want the button to say;
     //Create an input type dynamically.
     var btn = document.createElement("button");
     var t = document.createTextNode(text);
@@ -103,15 +111,55 @@ function change_status(target, id) {
     });
 }
 
-function edit_comment (target, id) {
-    var url = 'http://localhost:8888/bug-tracker/index.php/issues/' + target;
-    var title = "";
-    $.post(url, {'commentID' : id}, function(result) {
+function edit_comment (obj, id) {
+    var exists = document.getElementById('commentTitle');
+    if (!exists) {
+        if (commentArray.length) {
+            commentArray[0] = $(obj).closest(".comment").find("h4").html();
+            commentArray[1] = $(obj).closest(".comment").find("p").html();
+        }
+        $(obj).closest(".comment").find("h4").replaceWith("<div id='titleDiv'>Title: <input name='commentTitle' id='commentTitle'></input><br><div>");
+        $(obj).closest(".comment").find("p").replaceWith("<div id='contentDiv'>Description: <br><textarea name='commentContent' id='commentContent'>" + commentArray[1] + "</textarea>" + 
+                                                        "<br><button onclick='update_comment(this)'>Save</button></div>");
+        setTimeout(function() {
+            $("#commentTitle").attr('value', commentArray[0]);
+        }, 0);
+    } else { 
+        if ($(obj).closest(".comment").find('#commentTitle').attr('value')) {
+            $("#titleDiv").replaceWith("<h4>" + commentArray[0] + "</h4>");
+            $("#contentDiv").replaceWith("<p>" + commentArray[1] + "</p>");
+        } else {
+            $("#titleDiv").replaceWith("<h4>" + commentArray[0] + "</h4>");
+            $("#contentDiv").replaceWith("<p>" + commentArray[1] + "</p>");
+
+            commentArray[0] = $(obj).closest(".comment").find("h4").html();
+            commentArray[1] = $(obj).closest(".comment").find("p").html();
+
+            $(obj).closest(".comment").find("h4").replaceWith("<div id='titleDiv'>Title: <input name='commentTitle' id='commentTitle'></input><br><div>");
+            $(obj).closest(".comment").find("p").replaceWith("<div id='contentDiv'>Description: <br><textarea name='commentContent' id='commentContent'>" + commentArray[1] + "</textarea>" + 
+                                                             "<br><button onclick='update_comment(this)'>Save</button></div>");
+            setTimeout(function() {
+                $("#commentTitle").attr('value', commentArray[0]);
+            }, 1);
+        }
+    }
+
+    //$.post(url, {'commentID' : id}, function(result) {
         
-    });
+    //});
 }
 
-function delete_comment (target, id) {
+function update_comment(obj) {
+    event.preventDefault();
+    var url = 'http://localhost:8888/bug-tracker/index.php/comments/edit_comment';
+    var formItems = $(obj).closest(".commentForm").serialize();
+    console.log(formItems);
+    $.post(url, formItems, function(result) {
+        $("#comments").html(result);
+    })
+}
+
+function delete_comment (id) {
     var elementID = "#comment" + id;
     $(".alert").html('').css('visibility', 'hidden');
     $(elementID).html("Are you sure you want to delete this comment? ").addClass('alert-danger').css('visibility', 'visible');

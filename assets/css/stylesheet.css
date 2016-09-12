@@ -12,7 +12,7 @@ nav {
     background: linear-gradient(#eee, #ddd);
 }
 
-#header {
+#title {
     display: inline-block;
     font-size: 1.5em;
     font-weight: bold;
@@ -26,6 +26,10 @@ nav {
 i {
     color: gray;
     cursor: pointer;
+}
+
+form {
+    margin-bottom: 0px;
 }
 
 /*
@@ -151,6 +155,25 @@ i {
 
 /*
 * end .badge classes
+* begin header classes
+*/
+
+#user-actions {
+    float: right;
+    padding: 10px;
+}
+
+#logout {
+    float: right;
+}
+
+#user {
+    float: right;
+    padding: 4px;
+}
+
+/*
+* end header classes
 * begin issue classes
 */
 #issue-header {
@@ -303,6 +326,10 @@ user {
 textarea {
     resize: none;
     height: 100px;
+}
+.comment textarea {
+    width: 75%;
+    height: 3em;
 }
 
 

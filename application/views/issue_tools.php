@@ -6,8 +6,8 @@
         <div class='well'>
             <?php echo form_open('comments/create_comment') ?>
                 <input type='hidden' class='issue-id' name='id'>
-                <label for='commentTitle'>Title: </label><br>
-                <input type='text' name='commentTitle' id='commentTitle' autocomplete="off"><br>
+                <label for='newCommentTitle'>Title: </label><br>
+                <input type='text' name='commentTitle' id='newCommentTitle' autocomplete="off"><br>
                 <label for='content'>Content: </label><br>
                 <textarea name='content' id='content' autocomplete="off"></textarea>
                 <input type='submit' class='btn btn-small' value='Submit'>

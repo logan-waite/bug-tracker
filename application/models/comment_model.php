@@ -7,9 +7,8 @@ class Comment_model extends CI_Model {
         $content = $_POST['content'];
         $today = date("Y-m-d", time());
 
-        echo "You made it to the model!";
         $comment_data = array(
-            'bugID'             => $issueID,
+            'bugID'             =>  $issueID,
             'title'             =>  $title,
             'content'           =>  $content,
         //    'userID'            =>  $userID,
@@ -20,11 +19,44 @@ class Comment_model extends CI_Model {
         //$this->load->view('success');
     }  
 
-    function delete_comment() {
+    function delete_comment() {     //Deletes selected comment
+        $id = trim($_POST['id']);
+        $this->db->select('bugID');
+        $this->db->where('id', $id);
+        $query = $this->db->get('comments');
         
+        foreach ($query->result() as $row)
+        {
+            $issueID =  $row->bugID;
+        }
+        
+        $this->db->delete('comments', array('id' => $id));
+        //echo "Comment ".$id." deleted!";
+        return $issueID;
     }
 
-    function edit_comment() {
+    function edit_comment() {       //Edits comment with submitted information
+        $id = $_POST['id'];
+        $commentTitle = $_POST['commentTitle'];
+        $commentContent = $_POST['commentContent'];
+        
+        $data = array(
+            'title'     => $commentTitle,
+            'content'   => $commentContent
+        );
+            
+        $this->db->where('id', $id);
+        $this->db->update('comments', $data);
+        
+        $this->db->where('id', $id);
+        $query = $this->db->get('comments');
+        
+        foreach ($query->result() as $row)
+        {
+            $issueID =  $row->bugID;
+        }
+        
+        return $issueID;
         
     }
 

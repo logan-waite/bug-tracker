@@ -6,17 +6,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script src='<?=base_url()?>assets/js/javascript.js'></script>
-        <script>
-            $(document).ready(function() {
-               // $(".nav-pills:first").addClass("active");
-                $("#header").html("Current Issues");
-            });
-        </script>
     
     </head>
     
     <body>
-        <h1>Bugtracker 1.0</h1>
+        <div id='header'>
+            <?php $this->load->view('header'); ?>
+        </div>
         <nav>
             <div class="btn" onclick="add_issue_view('new_issue')">
                 New Issue
@@ -24,7 +20,7 @@
             <div class="btn" onclick="current_issue_view('current_issues')">
                 Current Issues
             </div>
-            <div id='header'>
+            <div id='title'>
                 
             </div>
         </nav>
